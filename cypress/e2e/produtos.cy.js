@@ -24,4 +24,11 @@ describe('Teste Página de Produtos', () => {
         cy.get('.woocommerce-message').should('contain', quantidade + ' × “Abominable Hoodie” foram adicionados no seu carrinho.')
     });
 
+    it('Deve adicionar um produto aos favoritos', () => {
+        cy.get('[class="product-block grid"]').eq(7).click()
+        cy.get('.yith-wcwl-add-button').click()
+
+        cy.get('.yith-wcwl-wishlistaddedbrowse').should('contain', 'Browse wishlist')
+    });
+
 });
