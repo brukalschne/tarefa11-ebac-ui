@@ -2,14 +2,12 @@ pipeline {
     agent any
 
     stages {
-        stage('Clonar restorio') {
+        stage('Clonar repositorio') {
             steps {
                 git branch: 'main', url: 'https://github.com/brukalschne/tarefa11-ebac-ui.git'
                 bat 'npm install'
             }
         }
-    }
-    stages {
         stage('Executar testes') {
             steps {
                 bat '''set NO_COLOR=1
